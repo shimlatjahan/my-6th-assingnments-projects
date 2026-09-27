@@ -21,14 +21,14 @@ const MyPlanPage = () => {
     removeSavedWorkout,
   } = context;
 
-  // Total minutes
+ 
   const totalMinutes = planItems.reduce(
     (total, workout) =>
       total + Number(workout.duration || 0),
     0
   );
 
-  // Total calories
+ 
   const totalCalories = planItems.reduce(
     (total, workout) =>
       total + Number(workout.caloriesBurned || 0),
@@ -53,9 +53,9 @@ const MyPlanPage = () => {
           </p>
         </div>
 
-        {/* Metrics */}
+       
         <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          {/* Exercises */}
+          
           <div className="rounded-2xl border border-white/10 bg-[#111111] p-6">
             <p className="text-sm tracking-wider text-gray-400">
               EXERCISES
@@ -66,7 +66,7 @@ const MyPlanPage = () => {
             </p>
           </div>
 
-          {/* Minutes */}
+         
           <div className="rounded-2xl border border-white/10 bg-[#111111] p-6">
             <p className="text-sm tracking-wider text-gray-400">
               MINUTES
@@ -77,7 +77,7 @@ const MyPlanPage = () => {
             </p>
           </div>
 
-          {/* Calories */}
+         
           <div className="rounded-2xl border border-white/10 bg-[#111111] p-6">
             <p className="text-sm tracking-wider text-gray-400">
               CALORIES
@@ -89,7 +89,7 @@ const MyPlanPage = () => {
           </div>
         </div>
 
-        {/* Tabs */}
+      
         <PlanTabs
           planItems={planItems}
           savedItems={savedItems}
