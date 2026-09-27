@@ -11,7 +11,7 @@ const Loading = () => {
           <FaDumbbell className="text-2xl text-[#ccff00]" />
         </div>
 
-        {/* Text */}
+        
         <h2 className="mt-6 text-lg font-bold uppercase tracking-[0.15em] text-white">
           Loading workouts…
         </h2>
