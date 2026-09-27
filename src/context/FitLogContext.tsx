@@ -1,3 +1,4 @@
+
 "use client";
 
 import {
@@ -11,21 +12,21 @@ import { toast } from "react-toastify";
 import { IWorkout } from "@/types/type";
 
 interface FitLogContextType {
-  
   planItems: IWorkout[];
   savedItems: IWorkout[];
 
   // Counts
   planCount: number;
   savedCount: number;
-  
-  addToPlan: (workout: IWorkout) => void;
-  removeFromPlan: (id: string) => void;
-  markAsDone: (id: string) => void;
 
-  
+  // Plan actions
+  addToPlan: (workout: IWorkout) => void;
+  removeFromPlan: (id: number) => void;
+  markAsDone: (id: number) => void;
+
+  // Saved actions
   saveWorkout: (workout: IWorkout) => void;
-  removeSavedWorkout: (id: string) => void;
+  removeSavedWorkout: (id: number) => void;
 }
 
 export const FitLogContext =
@@ -36,12 +37,16 @@ export function FitLogProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [planItems, setPlanItems] = useState<IWorkout[]>([]);
-  const [savedItems, setSavedItems] = useState<IWorkout[]>([]);
+  const [planItems, setPlanItems] =
+    useState<IWorkout[]>([]);
 
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [savedItems, setSavedItems] =
+    useState<IWorkout[]>([]);
 
+  const [isLoaded, setIsLoaded] =
+    useState(false);
 
+  // Load data from localStorage
   useEffect(() => {
     try {
       const storedPlan =
@@ -67,7 +72,7 @@ export function FitLogProvider({
     }
   }, []);
 
-
+  // Save data to localStorage
   useEffect(() => {
     if (!isLoaded) {
       return;
@@ -91,7 +96,7 @@ export function FitLogProvider({
     }
   }, [planItems, savedItems, isLoaded]);
 
-  
+  // Add workout to Today's Plan
   const addToPlan = (workout: IWorkout) => {
     // Maximum 5 workouts
     if (planItems.length >= 5) {
@@ -102,6 +107,7 @@ export function FitLogProvider({
       return;
     }
 
+    // Prevent duplicate workout
     const alreadyExists = planItems.some(
       (item) => item.id === workout.id
     );
@@ -124,8 +130,8 @@ export function FitLogProvider({
     );
   };
 
-  
-  const removeFromPlan = (id: string) => {
+  // Remove workout from Today's Plan
+  const removeFromPlan = (id: number) => {
     setPlanItems((prev) =>
       prev.filter(
         (workout) => workout.id !== id
@@ -137,8 +143,8 @@ export function FitLogProvider({
     );
   };
 
-  
-  const markAsDone = (id: string) => {
+  // Mark workout as Done
+  const markAsDone = (id: number) => {
     setPlanItems((prev) =>
       prev.filter(
         (workout) => workout.id !== id
@@ -150,6 +156,7 @@ export function FitLogProvider({
     );
   };
 
+  // Save workout for later
   const saveWorkout = (workout: IWorkout) => {
     // Prevent duplicate saved workout
     const alreadySaved = savedItems.some(
@@ -174,8 +181,8 @@ export function FitLogProvider({
     );
   };
 
-  
-  const removeSavedWorkout = (id: string) => {
+  // Remove workout from Saved
+  const removeSavedWorkout = (id: number) => {
     setSavedItems((prev) =>
       prev.filter(
         (workout) => workout.id !== id
@@ -187,24 +194,22 @@ export function FitLogProvider({
     );
   };
 
- 
   return (
     <FitLogContext.Provider
       value={{
-        // Data
+        
         planItems,
         savedItems,
 
-        // Counts
+        
         planCount: planItems.length,
         savedCount: savedItems.length,
 
-        // Plan actions
+        
         addToPlan,
         removeFromPlan,
         markAsDone,
 
-        // Saved actions
         saveWorkout,
         removeSavedWorkout,
       }}
