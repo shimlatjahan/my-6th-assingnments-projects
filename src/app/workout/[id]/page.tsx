@@ -73,20 +73,20 @@ const WorkoutDetailsPage = async ({
             />
           </div>
 
-          {/* Details */}
+          
           <div className="flex flex-col">
 
-            {/* Name */}
+            
             <h1 className="text-3xl font-black uppercase tracking-tight text-white sm:text-4xl">
               {workout.name}
             </h1>
 
-            {/* Description */}
+            
             <p className="mt-3 max-w-xl text-sm leading-6 text-gray-400">
               {workout.description}
             </p>
 
-            {/* Muscle Groups */}
+           
             <div className="mt-4 flex flex-wrap gap-2">
               {workout.muscleGroups.map((muscle) => (
                 <span
@@ -98,7 +98,7 @@ const WorkoutDetailsPage = async ({
               ))}
             </div>
 
-            {/* Specs */}
+            
             <div className="mt-5 overflow-hidden rounded-xl border border-zinc-800 bg-[#15181e]">
 
               <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-3">
@@ -173,7 +173,7 @@ const WorkoutDetailsPage = async ({
 
             </div>
 
-            {/* Instructions */}
+          
             <div className="mt-5">
               <h2 className="text-sm font-bold uppercase tracking-wide text-white">
                 Instructions
@@ -199,7 +199,7 @@ const WorkoutDetailsPage = async ({
               </div>
             </div>
 
-            {/* Buttons */}
+            
             <WorkoutDetailsActions workout={workout} />
 
           </div>
