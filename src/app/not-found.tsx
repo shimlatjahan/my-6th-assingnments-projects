@@ -29,7 +29,7 @@ const NotFound = () => {
           Let&apos;s get you back to the FitLog workout library.
         </p>
 
-        {/* Button */}
+       
         <Link
           href="/"
           className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#ccff00] px-6 py-3 text-sm font-bold uppercase tracking-wide text-black transition hover:bg-[#b8e600]"
