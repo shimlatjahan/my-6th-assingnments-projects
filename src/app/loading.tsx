@@ -4,7 +4,7 @@ const Loading = () => {
   return (
     <main className="flex min-h-screen items-center justify-center bg-[#0b0b0b] px-4">
       <div className="flex flex-col items-center justify-center text-center">
-        {/* Spinner */}
+       
         <div className="relative flex h-20 w-20 items-center justify-center">
           <div className="absolute inset-0 animate-spin rounded-full border-4 border-white/10 border-t-[#ccff00]" />
 
