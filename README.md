@@ -30,4 +30,4 @@ FitLog is designed for people who want a simple way to discover workouts and org
 
 Users can add exercises to their daily plan or save them for later. The My Plan page keeps the selected workouts organized and provides useful information such as total exercises, workout time, and calories.
 
-The interface follows a dark, clean, and modern gym-inspired design and is fully responsive across different screen sizes
+The interface follows a dark, clean, and modern gym-inspired design and is fully responsive across different screen sizes.
